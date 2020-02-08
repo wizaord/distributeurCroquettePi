@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*-coding: latin-1-*-
 # libraries
 import time
 
@@ -30,7 +29,7 @@ for pin in StepPins:
 
 
 # Define some settings
-WaitTime = 0.005
+WaitTime = 0.002
 
 # Define simple sequence
 Seq1 = [[1, 0, 0, 0],
@@ -80,7 +79,7 @@ def flush_gpio_for_seq(seq_number):
 
 
 # Start main loop
-nbStepsPerRev = 100
+nbStepsPerRev = 2048
 hasRun = False
 while not hasRun:
     steps(nbStepsPerRev, 1)  # parcourt un tour dans le sens horaire
