@@ -69,7 +69,7 @@ def steps(nb, direction):
 
 
 def flush_gpio_for_seq(seq_number):
-    print " Enable GPIO sequence {}".format(seq_number)
+    # print " Enable GPIO sequence {}".format(seq_number)
     for pin in range(4):
         xpin = StepPins[pin]
         if Seq[seq_number][pin] != 0:
@@ -80,13 +80,9 @@ def flush_gpio_for_seq(seq_number):
 
 # Start main loop
 nbStepsPerRev = 2048
-hasRun = False
-while not hasRun:
-    steps(nbStepsPerRev, 1)  # parcourt un tour dans le sens horaire
-    time.sleep(1)
-    steps(nbStepsPerRev, -1)  # parcourt un tour dans le sens anti-horaire
-    time.sleep(1)
-    hasRun = True
+steps(nbStepsPerRev, 1)  # parcourt un tour dans le sens horaire
+time.sleep(1)
+steps(nbStepsPerRev, -1)  # parcourt un tour dans le sens anti-horaire
 print "Stop motor"
 
 
